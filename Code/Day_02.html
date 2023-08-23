@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // assignment operator +=; -=; *=; /=; %= ...
+        let num = 1 
+        num += 1 //   equal to num = num + 1
+        console.log(num) // 2
+
+
+        // unary operator + || - 
+        let i = 1
+        console.log(i++ + ++i + i)  // 7 (i++ = 1, i = 2, ++i = 3, i = 3 )
+        
+        let n = 1 
+        console.log(n++ + 1) // 2
+
+
+        // comparison operators
+        console.log(2 == 2)  // true
+        console.log(2 == '2') //true
+        console.log(2 === '2') //false
+        console.log(NaN === NaN) // NaN; NaN is equal to nothing, include itself
+
+        console.log('a'<'b' ) // true; compare the ASCII code
+        console.log('aa'<'ab' ) // true
+        console.log('aa'<'aac' ) // true
+
+        // logical operators  &&, ||, !
+        console.log(true && true) // true
+        console.log(3<5 && 3> 5) // false
+        console.log(3>5 || 3 < 4) // true
+        console.log(!true) // false
+        
+
+        // practice 
+        let numA = +prompt('Please enter a number: ')
+        alert(numA % 4 === 0 && numA % 100 !== 0)
+
+
+        let a = 3 > 5 && 2 < 7 && 3 === 4 
+        console.log(a) //false
+
+        
+
+    </script>
+</body>
+</html>
