@@ -4,8 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        h2 {
+            text-align: center;
+        }
+
+        table,th, td {
+            border: 1px solid #333;
+            border-collapse: collapse;
+        }
+    </style>
 </head>
 <body>
+    <h2>Order Details</h2>
+    
     <script>
         /* let age
         age =18
@@ -76,11 +88,67 @@
  */
 
         // null
-        let obj = null
+        /* let obj = null
         console.log(obj) // null
 
         console.log(undefined + 1) // NaN
         console.log(null + 1 ) // 1
+
+        console.log(typeof obj) // Object */
+
+
+        // transform the type
+        /* console.log(1 + 1) // 2
+        console.log('pink' + 1) // pink1
+        console.log('2' - '1') // 1
+        console.log(2 + '2') // 22
+        console.log(+'123') // number 123 transfer string to number
+
+        let str = '123'
+        console.log(Number(str)) // 123
+
+        parseInt('12px') // 12
+        parseFloat('12.2years') // 12.2 */
+
+
+        // practice 
+
+        /* let num1 = prompt('Please enter the 1st number: ')
+        let num2 = prompt('Please enter the 2nd number: ')
+        let sum = Number(num1) + Number(num2)
+        alert(sum) */
+
+        // Day 1 final practice 
+
+        let price = +prompt("Please enter the item price: ")
+        let num = +prompt("Please enter the item number: ")
+        let address = prompt("Please enter the address: ")
+
+        let totalValue = price * num
+
+        document.write(`
+        <table>
+        <tr>
+            <th>Item Name</th>
+            <th>Price</th>
+            <th>Amount</th>
+            <th>Total</th>
+            <th>Address</th>
+        </tr>
+        <tr>
+            <td>Xiao'mi Young Plus</td>
+            <td>$${price}</td>
+            <td>${num}</td>
+            <td>$${totalValue}</td>
+            <td>${address}</td>
+        </tr>
+        
+    </table>
+        `)
+        
+
+
+
 
         
 
