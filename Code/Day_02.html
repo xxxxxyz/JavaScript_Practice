@@ -162,8 +162,91 @@
             i++
         } */
 
-        let i = 1 
+        // while loop practice 
+
+        // 1. print from 1 to 100
+        /* let i = 1
+        while(i <= 100) {
+            document.write(`This is the ${i} number.<br>`)
+            i++
+        } */
+
+        // 2. sum up 1 to 100
+
+        //  let i = 1 
+        /*  let sum = 0
+         while (i <= 100) {
+            sum += i
+            i++
+         }
+
+         document.write(sum) */
+
+        // 3. sum up even number between 1 to 100
+        /* let i = 1
+        let sum = 0
+        while (i <= 100) {
+            if( i % 2 !== 0 ) {
+                sum += i
+            }
+            i++
+        }
+
+        document.write(sum) */
+ 
+
+        // exit loop 
+       /*  let i = 1
+        while (i <= 5) {
+            if(i === 3 ) {
+                i++
+                continue // finish this loop,  continue next round
+            }
+
+            console.log(`I have drunk ${i} cups of coffee.`)
+            i++
+        } */
+
+        // practice for loop
+       /*  while (true) {
+            let str = prompt('Do you love me? ')
+            if(str == 'love') {
+                break
+            }
+        } */
+
+        // practice project ATM
+        let money = 10000 // outside the loop
+        while(true) {
+          let re = +prompt(`Please enter what you would like to do: 
+            1.Withdraw
+            2.Saving 
+            3.Balance 
+            4. Exit`)
+            
+            if(re === 4) {
+                break
+            }
+            
+            switch (re) {
+                case 1:
+                    let withdraw = +prompt('Please enter how much would like to withdraw: ')
+                    money -= withdraw
+                    break;
+                case 2:
+                    let save = +prompt('Please enter how much would you like to save: ')
+                    money += save
+                case 3: 
+                    alert(`Your current balance is ${money}`)
+                default:
+                    break;
+            }
+        }
+
         
+
+
+
 
 
     </script>
