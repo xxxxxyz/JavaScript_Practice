@@ -6,6 +6,15 @@
     <title>Document</title>
 </head>
 <body>
+
+    <style>
+        span {
+            display: inline-block;
+            padding: 5px 20px;
+            border: 1px solid pink;
+            margin: 2px;
+        }
+    </style>
    <script>
     // for loop
    /*  for(let i = 1; i <= 3; i++) {
@@ -33,10 +42,93 @@
 
     // print array
 
-    let arr = ['刘德华','刘晓庆','刘若英','刘嘉玲']
+    /* let arr = ['刘德华','刘晓庆','刘若英','刘嘉玲']
     for(let i = 0; i < arr.length; i++) {
         document.write(arr[i])
-    }
+    } */
+
+    /* let arr1 = []
+    console.log(arr1);
+    console.log(arr1[0]);// undefined */
+
+    // for loop break
+    /* for(let i = 1 ; i <= 5; i++) {
+        if(i === 3) {
+            continue // exit this round loop 
+        }
+        console.log(i);
+    } */
+
+    /* for(let i = 0; i <= 6; i++) {
+        if(i === 3) {
+            break // exit the whole loop
+        }
+
+        console.log(i)
+        document.write(i)
+    } */
+
+   /*  for(;;) {
+        console.log(11) // infinity loop
+    } */
+
+    // practice 
+
+   /*  for(let i = 1; i <= 3; i++) {
+        document.write(`This is the ${i} day.<br>`)
+        for(let j = 1; j <= 5; j++) {
+            document.write(`${j} word<br>`)
+        }
+        
+    } */
+
+    // print *****
+    /* for(let i = 1; i <= 5; i++) {
+        
+        for(let j = 1; j < 5; j++) {
+            document.write('⭐️')
+        }
+        // break line
+        document.write('<br>')
+    } */
+
+    /* let rowNum = +prompt('Please enter the row number: ')
+    let colNum = +prompt('Please enter the column number: ')
+
+    for(let i = 1; i <= rowNum ; i++) {
+        for(let j = 1; j <= colNum; j++) {
+            document.write('⭐️')
+        }
+        document.write('<br>')
+    } */
+
+    // practice 3
+
+    /* for(let i = 1; i <= 5; i++) {
+        for(let j = 1; j<= i; j++) {
+            document.write('⭐️')
+        }
+        document.write('<br>')
+    } */
+
+    // practice
+
+    /* for(let i = 1; i <= 9; i++) {
+        for(let j = 1; j<= i; j++) {
+            document.write(`<span>${j} * ${i} = ${i * j}</span>`)
+        }
+        document.write('<br>')
+    }  */
+
+
+    // array
+
+    let arr = [1, 2, 'pink', true]  // diff type of data
+    let arr1 = new Array(1,2,3) //constructor
+
+
+
+
 
    </script> 
 </body>
