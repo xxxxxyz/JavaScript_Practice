@@ -1,223 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+//  edit array
+// let arr =[]
+// console.log(arr[0]) // => undefined
 
-    <style>
-        span {
-            display: inline-block;
-            padding: 5px 20px;
-            border: 1px solid pink;
-            margin: 2px;
-        }
-    </style>
-   <script>
-    // for loop
-   /*  for(let i = 1; i <= 3; i++) {
-        console.log('Hello, world.');
-    } */
+// arr[0] = 1
+// arr[1] = 5
+// console.log(arr) // => [1,5]
 
-    // for loop print  1 ~ 100 
-   /*  for (let i = 1; i <= 100; i++) {
-        document.write(`${i}<br>`)
-    } */
+/* let arr = ['pink', 'red', 'purple']
+// arr[0] = 'black'
+// console.log(arr[0]) // black
+for(let i = 0; i < arr.length; i++) {
+    arr[i] += ' teacher'
+}
 
-    // sum up all even number between 1 - 100
-    /* let sum = 0
-    for (let i = 1; i <= 100; i++) {
-        if(i % 2 === 0) {
-            sum += i
-        }
-    }
-    document.write(sum) */
+console.log(arr); */
 
-    // print 5 start icon
-    /* for(let i = 1; i <= 5; i++) {
-        document.write('⭐️')
-    } */
+// push() & unshift()
+/* let arr = [0,1]
+arr.push(3,5)
 
-    // print array
+arr.unshift(87,'pink')
+console.log(arr) */
 
-    /* let arr = ['刘德华','刘晓庆','刘若英','刘嘉玲']
-    for(let i = 0; i < arr.length; i++) {
-        document.write(arr[i])
-    } */
+// ⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️ select data ⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️
+let arr = [2,0,6,1,77,0,52,0,25,7]
+// let newArray = []
 
-    /* let arr1 = []
-    console.log(arr1);
-    console.log(arr1[0]);// undefined */
+// for(let i = 0; i < arr.length; i++) {
+//     if(arr[i] >= 10) {
+//           newArray.push(arr[i])
+//     }
+// }
 
-    // for loop break
-    /* for(let i = 1 ; i <= 5; i++) {
-        if(i === 3) {
-            continue // exit this round loop 
-        }
-        console.log(i);
-    } */
+// console.log(newArray)
 
-    /* for(let i = 0; i <= 6; i++) {
-        if(i === 3) {
-            break // exit the whole loop
-        }
-
-        console.log(i)
-        document.write(i)
-    } */
-
-   /*  for(;;) {
-        console.log(11) // infinity loop
-    } */
-
-    // practice 
-
-   /*  for(let i = 1; i <= 3; i++) {
-        document.write(`This is the ${i} day.<br>`)
-        for(let j = 1; j <= 5; j++) {
-            document.write(`${j} word<br>`)
-        }
-        
-    } */
-
-    // print *****
-    /* for(let i = 1; i <= 5; i++) {
-        
-        for(let j = 1; j < 5; j++) {
-            document.write('⭐️')
-        }
-        // break line
-        document.write('<br>')
-    } */
-
-    /* let rowNum = +prompt('Please enter the row number: ')
-    let colNum = +prompt('Please enter the column number: ')
-
-    for(let i = 1; i <= rowNum ; i++) {
-        for(let j = 1; j <= colNum; j++) {
-            document.write('⭐️')
-        }
-        document.write('<br>')
-    } */
-
-    // practice 3
-
-    /* for(let i = 1; i <= 5; i++) {
-        for(let j = 1; j<= i; j++) {
-            document.write('⭐️')
-        }
-        document.write('<br>')
-    } */
-
-    // practice
-
-    /* for(let i = 1; i <= 9; i++) {
-        for(let j = 1; j<= i; j++) {
-            document.write(`<span>${j} * ${i} = ${i * j}</span>`)
-        }
-        document.write('<br>')
-    }  */
-
-
-    // array
-    /* let arr = [1, 2, 'pink', true]  // diff type of data
-    let arr1 = new Array(1,2,3) //constructor */
-
-    // array sum
-    /* let arr = [2,6,1,7,4]
-    let sum = 0
-    /* for(let i = 0; i < arr.length; i++) {
-        sum += arr[i]
-    } */
-
-    /* console.log(`The final result is ${sum / arr.length}.`)
-    console.log(`The final result is ${sum}.`) */
-
-    // find out which is the largest and smallest number
-    // let arr = [2,6,1,77,52, 25,7]
-    // let max = arr[0]
-
-    /* for(let i = 0; i < arr.length; i++) {
-        if(arr[i] > max) {
-            max = arr[i]
-        }
-    }
-
-    console.log(max); */
-
-
-    // find the smallest number
-    /* let min = arr[0]
-    for(let i = 1; i< arr.length; i++) {
-        if(min > arr[i]) {
-            min = arr[i]
-        }
-    }
-
-    console.log(min); */
-
-
-    //  edit array
-    // let arr =[]
-    // console.log(arr[0]) // => undefined
-
-    // arr[0] = 1
-    // arr[1] = 5
-    // console.log(arr) // => [1,5]
-
-    /* let arr = ['pink', 'red', 'purple']
-    // arr[0] = 'black'
-    // console.log(arr[0]) // black
-    for(let i = 0; i < arr.length; i++) {
-        arr[i] += ' teacher'
-    }
-
-    console.log(arr); */
-
-    // push() & unshift()
-    /* let arr = [0,1]
-    arr.push(3,5)
-    
-    arr.unshift(87,'pink')
-    console.log(arr) */
-
-    // ⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️ select data ⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️
-    let arr = [2,0,6,1,77,0,52,0,25,7]
-    // let newArray = []
-
-    // for(let i = 0; i < arr.length; i++) {
-    //     if(arr[i] >= 10) {
-    //           newArray.push(arr[i])
-    //     }
-    // }
-
-    // console.log(newArray)
-    
-    // delete all '0' from the arr
-    // let newArr = []
-    // for(let i = 0; i < arr.length; i++) {
-    //     if(arr[i] !== 0) {
-    //         newArr.push(arr[i])
-    //     }
-    // }
-    // console.log(newArr)
-
-    
-
-
-
-
-
-
-
-    
-
-
-
-
-
-   </script> 
-</body>
-</html>
+// delete all '0' from the arr
+// let newArr = []
+// for(let i = 0; i < arr.length; i++) {
+//     if(arr[i] !== 0) {
+//         newArr.push(arr[i])
+//     }
+// }
+// console.log(newArr)
