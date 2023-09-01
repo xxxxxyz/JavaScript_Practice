@@ -8,19 +8,19 @@
 <body>
     <script>
         // function intro
-        function sheet() {
-            for(let i = 1; i <= 9; i++) {
-                for(let j = 1; j <= i; j++) {
-                    document.write(`<span>${j} * ${i} = ${j * i}</span>`)
-                }
-                document.write('<br>')
-            }
-        }
+        // function sheet() {
+        //     for(let i = 1; i <= 9; i++) {
+        //         for(let j = 1; j <= i; j++) {
+        //             document.write(`<span>${j} * ${i} = ${j * i}</span>`)
+        //         }
+        //         document.write('<br>')
+        //     }
+        // }
         
-        function sayHello() {
-            console.log('Hello, world')
-        }
-        sayHello()
+        // function sayHello() {
+        //     console.log('Hello, world')
+        // }
+        // sayHello()
 
         // practice
         /* function getSum() {
@@ -48,24 +48,46 @@
 
         // calculate score of all students
         // give a default value
-        function getArrSum(arr = []) {
-            let sum = 0
-            for(let i = 0; i < arr.length; i++) {
-                sum += arr[i]
-            }
-            document.write(sum)
-        }
-        getArrSum([60, 90, 50])
+        // function getArrSum(arr = []) {
+        //     let sum = 0
+        //     for(let i = 0; i < arr.length; i++) {
+        //         sum += arr[i]
+        //     }
+        //     document.write(sum)
+        // }
+        // getArrSum([60, 90, 50])
 
         // accumulate n to m
-        function accumulate(n = 0, m = 0) {
+        /* function accumulate(n = 0, m = 0) {
             let sum = 0
             for(let i = n; i <= m; i++) {
                 sum += i
-                console.log(sum)
             }
+            console.log(sum)
         }
-        accumulated()  // => 0
+
+        let num1 = +prompt('Please enter a number:')
+        let num2 = +prompt('Please enter another number:')
+        // accumulate()  // => 0
+        accumulate(num1, num2) */
+
+        // return value
+        // function fn() {
+        //     return 20
+        // }
+
+        // let re = fn() // fn() = 20
+        // console.log(re) 
+
+        function getTotalPrice(x, y) {
+            return x + y && x - y
+
+        }
+
+        let sum = getTotalPrice(1,3)
+        console.log(sum)
+
+        
  
     </script>
 </body>
