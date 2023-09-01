@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day_03 Homework</title>
+</head>
+<body>
+    <script>
+        // P1_Q1
+        let usersAge = []
+        for(let i = 1; i <= 5; i++) {
+            let userAge = +prompt(`Please enter age: `)
+            if(200 >userAge > 0) {
+                usersAge.push(userAge)
+            } else {
+                alert('Please enter an age between 0 ~ 200!')
+            }
+        }
+        // console.log(usersAge)
+        // P1_Q2
+        let adultAge = []
+        for(let j = 0; j < usersAge.length; j++) {
+            if(usersAge[j] >= 18) {
+                adultAge.push(usersAge[j])
+            }
+        }
+
+        // console.log(adultAge)
+        
+        //P1_Q3 sum up all age
+        let sum = usersAge[0]
+        for(let n = 0; n < usersAge.length; n++) {
+            sum += usersAge[n]
+        }
+
+        // console.log(sum)
+
+        // P1_Q4
+        // let averageAge = sum / usersAge.length
+        // console.log(averageAge)
+
+        // P1_05
+        let oldest = usersAge[0]
+        let youngest = usersAge[0]
+        for(let k = 0; k < usersAge.length; k++) {
+            if(usersAge[k] > oldest) {
+                oldest = usersAge[k]
+            } else {
+                youngest = usersAge[k]
+            }
+        }
+        console.log(oldest)
+        console.log(youngest)
+
+
+    </script>
+</body>
+</html>
