@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students information table</title>
+    <style>
+        table {
+            width: 600px;
+            text-align: center;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+
+        caption {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        tr {
+            height: 40px;
+            cursor: pointer;
+        }
+
+        table tr:nth-child(1) {
+            background-color: #ddd;
+        }
+
+        table tr:not(:first-child):hover {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <h2>学生信息</h2>
+    <p>将数据渲染到页面中...</p>
+
+    <table>
+        <caption>学生列表</caption>
+        <tr>
+            <th>序号</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>家乡</th>
+        </tr>
+    <script>
+        // object
+                    // let pink = {
+                    //     name: 'Mr Pink',
+                    //     age: 36,
+                    //     gender: 'Male',
+                    // }
+                    // console.log(pink)
+            
+                    // create an obj of a product
+                    // let good = {
+                    //     name: 'Xiaomi',
+                    //     num: 100012816024,
+                    //     weight: '0.55kg',
+                    //     address: 'China',
+                    // }
+                    // console.log(good)
+                    
+                    // // edit obj
+                    // // -- find info num
+                    // console.log(good.num) // => 100012816024
+            
+                    // //  -- add info price
+                    // good.price = 100
+            
+                    // // -- change the weight to 0.66kg 
+                    // good.weight = '0.66kg' 
+                    // console.log(good.weight) // => '0.66kg'
+            
+                    // // -- delete the info add
+                    // // delete good.address
+                    // console.log(good) 
+            
+                    // // -- another way to find data  
+                    // console.log(good['weight'])
+                    // console.log(good['name'])
+                    // console.log(good['address'])
+                    // console.log(good['num'])
+            
+                    // let obj = {
+                    //     uname: 'Andy Liu',
+                    //     song: function(x,y) {
+                    //         console.log(x + y)
+                    //     },
+                    //     gender: 'male',
+                    // }
+            
+                    // // use the method from the obj
+                    // obj.song(1,2)
+                
+                    // // document.write() // document is an object, write is a method
+            
+            
+                    // // add dancing method & print
+            
+                    // obj.dance = function(x) {
+                    //     document.write(x)
+                    // }
+            
+                    // obj.dance(1)
+            
+                    // console.log(obj)
+            
+                    // // traversing an object  --- for in 
+                    // let arr = ['pink', 'red', 'blue']
+                    // for (let k in arr) {
+                    //     console.log(k) // print the index of the element in array (type of k is string)
+                    //     console.log(arr[k]) // print the element in array
+                    // }
+        let students = [
+                { name: '小明', age: 18, gender: '男', hometown: '河北省' },
+                { name: '小红', age: 19, gender: '女', hometown: '河南省' },
+                { name: '小刚', age: 17, gender: '男', hometown: '山西省' },
+                { name: '小丽', age: 18, gender: '女', hometown: '山东省' },
+                { name: '晓强', age: 16, gender: '女', hometown: '蓝翔技校' }
+            ]
+
+        for(let i = 0; i < students.length; i++) {
+           document.write(`<tr>
+                <td>${i + 1}</td>
+                <td>${students[i].name}</td>
+                <td>${students[i].age}</td>
+                <td>${students[i].gender}</td>
+                <td>${students[i].hometown}</td>
+            </tr>`) 
+        }
+
+    //     // random a number between 1 ~ 10 
+    //     console.log(Math.floor(Math.random() * (10 + 1)))
+
+    //     // random a number between 5 ~ 10
+    //    let randomB = console.log(Math.floor(Math.random() * 6 + 5))
+
+    //    function getRandom(N, M) {
+    //     return Math.floor(Math.random()*( M - N + 1) + N)
+    //    }
+
+    //    console.log(getRandom(4,8))
+
+    // let arr = ['赵云','黄忠','关羽','zhangfei','machao', 'liubei', 'caocao']
+
+    // let random = Math.floor(Math.random() * arr.length)
+    // document.write(arr[random])
+
+    // no repeat print -- splice
+    // arr.splice(random, 1)
+
+    // random a number from 1 - 10
+    /* let randomNum = Math.floor(Math.random() * 11 )
+    let flag = true
+
+    for(let i = 1; i <= 3; i++){
+        let userNum = + prompt('Please have a guess:')
+        if(userNum > randomNum ) {
+            alert("Bigger")
+        } else if( userNum < randomNum) {
+            alert('Smaller')
+        } else {
+            alert('You are right!')
+            break // quite the loop
+        }
+
+        if(flag) {
+            alert('Run out of opportunities.')
+        } // already guess 3 times and have not get the right answer
+
+    } */
+
+
+      // get a random color 
+        let flag =  prompt('Please enter true or false:')
+
+        function getRandomColor(flag = true ) {
+            if(flag) {
+                let str = '#'
+                let arr =['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f']
+                for(let i = 1; i <= 6; i++) {
+                    let random = Math.floor(Math.random() * arr.length)
+                    str += arr[random]
+                } 
+                return str
+
+            } else {
+                let r = Math.floor(Math.random() * 256)
+                let g = Math.floor(Math.random() * 256)
+                let b = Math.floor(Math.random() * 256)
+                return `rgb(${r},${g},${b})`
+            }
+
+        }
+
+        console.log(getRandomColor());
+    </script>
+</body>
+</html>
