@@ -164,10 +164,21 @@
                                 </li>`)
                         }
             
-            
+                        
+                        // According the info storage  stack and heap
+                        let num1 = 10
+                        let num2 = num1
+                        num2 = 20
+                        console.log(num1) // =>10
+
+
+                        let obj1 = {
+                            age: 18
+                        }
+                        let obj2 = obj1
+                        obj2.age = 20
+                        console.log(obj1.age) // =>20
                 </script>
-
-
 
             </ul>
         </div>
