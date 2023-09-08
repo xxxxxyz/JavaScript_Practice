@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day_10</title>
+    <style>
+        .box {
+            height: 200px;
+            width: 200px;
+        }
+        .active {
+           color: red;
+           background: pink; 
+        }
+    </style>
+</head>
+<body>
+    <div class='box'>Hello, world</div>
+    <script>
+        // add a background color to box
+        // 1. fetch the box element
+        const box = document.querySelector('.box')
+        // 2. add the class name 'active'
+        box.classList.add('active')
+
+
+        // delete the class name
+        box.classList.remove('box')
+
+        // toggle the class name 
+        box.classList.toggle('box')
+    </script>
+</body>
+</html>
