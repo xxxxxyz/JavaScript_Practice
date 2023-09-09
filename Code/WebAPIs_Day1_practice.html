@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carousel practice</title>
+    <title>Document</title>
     <style>
         * {
             box-sizing: border-box;
@@ -96,7 +96,7 @@
         <div class="slider-footer">
           <p>对人类来说会不会太超前了？</p>
           <ul class="slider-indicator">
-            <li></li>
+            <li class='active'></li>
             <li></li>
             <li></li>
             <li></li>
@@ -124,35 +124,32 @@
             { url: './images/slider08.jpg', title: '谁不想和小猫咪贴贴呢！', color: 'rgb(99, 72, 114)' },
         ]
 
-        // 1. fresh the page and random display a slide
-
-        // 1.1 get a random number
-        const randomNum = parseInt(Math.random() * sliderData.length)
-        // console.log(sliderData[randomNum])
-        // 1.2 random replace the image url
+        // 1. 获取元素
         const img = document.querySelector('.slider-wrapper img')
-        // console.log(img)
-        img.src = sliderData[randomNum].url
-        // 1.3 replace the title 
-        const p = document.querySelector('.slider-footer p')
-        p.innerHTML = sliderData[randomNum].title
-        // 1.4 replace the background color of the banner
-        const footer = document.querySelector('.slider-footer')
-        // console.log(footer)
-        footer.style.backgroundColor = sliderData[randomNum].color
+        const p  = document.querySelector('.slider-footer p')
+        let i = 0
+        // 2. setup an interval 
+        // console.log(slierData[i])
+        setInterval(function() {
+            i++
+            if(i >= sliderData.length) {
+                i = 0
+            }
 
-        // 2. change the pagination dot 
-        const li = document.querySelector(`.slider-indicator li:nth-child(${randomNum + 1})`)
-        // console.log(dot)
-        li.classList.add('active')
+            // console.log(sliderData[i])
+            img.src = sliderData[i].url
+            p.text = sliderData[i].title
 
-        // 3. set the carousel auto play
-        let timer = 10
-        let m = setInterval(function() {
+            // remove the previous active class
+            document.querySelector('.slider-indicator .active').classList.remove('active')
+
+            // add active to the current slider
+            document.querySelector(`.slider-indicator li:nth-child(${i + 1})`).classList.add('active')
+
             
         }, 1000)
 
 
-      </script>
+    </script>
 </body>
 </html>
