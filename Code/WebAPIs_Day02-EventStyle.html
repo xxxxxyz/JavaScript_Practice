@@ -179,15 +179,22 @@
 
         // 3. add mouseover and mouse leave 
         const slider = document.querySelector('.slider')
-        let myTimer = 0
-        slider.addEventListener('mouseleave', function(){
+        let myTimer = setInterval(function() {
+                // auto active the next click active
+                next.click()
+            },1000)
+
+        slider.addEventListener('mouseenter', function(){
+            clearInterval(myTimer)
+        })
+
+
+        // mouse leave and open myTimer
+        slider.addEventListener('mouseleave', function() {
             myTimer = setInterval(function() {
                 // auto active the next click active
                 next.click()
-            }, 1000)
-        })
-        slider.addEventListener('mouseover', function() {
-            clearInterval(myTimer)
+            },1000)
         })
 
         // create the render function for reused
