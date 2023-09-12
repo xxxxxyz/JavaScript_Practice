@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .box {
+            width: 600px;
+            margin: 50px auto;
+            display: flex;
+            font-size: 25px;
+            line-height: 40px;
+        }
+
+        .qs {
+
+            width: 450px;
+            height: 40px;
+            color: red;
+
+        }
+
+        .btns {
+            text-align: center;
+        }
+
+        .btns button {
+            width: 120px;
+            height: 35px;
+            margin: 0 50px;
+        }
+    </style>
+</head>
+<body>
+    <h2>随机点名</h2>
+    <div class="box">
+        <span>The Name is: </span>
+        <div class="qs"> To display the name here</div>
+    </div>
+    <div class="btns">
+        <button class="start">Start</button>
+        <button class="end">End</button>
+    </div>
+    
+    <script>
+        // random get a name
+        const arr = ['马超', '黄忠', '赵云', '关羽', '张飞']
+
+        // 1. click the start button
+        const start = document.querySelector('.start')
+        const end = document.querySelector('.end')
+        const qs = document.querySelector('.qs')
+        let timeId = 0
+        let random = 0
+
+        start.addEventListener('click', function() {
+            timeId = setInterval(function(){
+                random = parseInt(Math.random() * arr.length)
+                // console.log(arr[random]);
+                qs.innerHTML = arr[random]
+            }, 35)
+
+            // if there is only one element left disable two button
+            if(arr.length === 1 ) {
+                start.disabled = true
+                end.disabled = true
+            }
+        })
+
+        // 2. set click the end button and stop the random action
+        end.addEventListener('click', function(){
+            clearInterval(timeId)
+
+            // remove the selected element
+            arr.splice(random,1)
+            // console.log(arr)
+        })
+
+    </script>
+</body>
+</html>
