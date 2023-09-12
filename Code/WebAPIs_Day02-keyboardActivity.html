@@ -148,12 +148,13 @@
             if(e.key === 'Enter') {
 
                 // to avoid the comment is empty
-                if(tx.value.trim() !== '') {
+                if(tx.value.trim()) {
                     item.style.display = 'block'
                     text.innerHTML = tx.value
                 } 
                 
                 tx.value = ''
+                total.innerHTML = '0 / 200字'
 
             }
 
