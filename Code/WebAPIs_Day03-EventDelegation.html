@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* * {
+          margin: 0;
+          padding: 0;
+        }
+        
+        .tab {
+          width: 590px;
+          height: 340px;
+          margin: 20px;
+          border: 1px solid #e4e4e4;
+        }
+    
+        .tab-nav {
+          width: 100%;
+          height: 60px;
+          line-height: 60px;
+          display: flex;
+          justify-content: space-between;
+        }
+    
+        .tab-nav h3 {
+          font-size: 24px;
+          font-weight: normal;
+          margin-left: 20px;
+        }
+    
+        .tab-nav ul {
+          list-style: none;
+          display: flex;
+          justify-content: flex-end;
+        }
+    
+        .tab-nav ul li {
+          margin: 0 20px;
+          font-size: 14px;
+        }
+    
+        .tab-nav ul li a {
+          text-decoration: none;
+          border-bottom: 2px solid transparent;
+          color: #333;
+        }
+    
+        .tab-nav ul li a.active {
+          border-color: #e1251b;
+          color: #e1251b;
+        }
+    
+        .tab-content {
+          padding: 0 16px;
+        }
+    
+        .tab-content .item {
+          display: none;
+        }
+    
+        .tab-content .item.active {
+          display: block;
+        } */
+
+        div {
+            margin: 100px;
+            overflow: scroll;
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+        }
+
+        body {
+            height: 3000px;
+        }
+      </style>
+</head>
+<body>
+    <!-- <div class="tab">
+        <div class="tab-nav">
+          <h3>每日特价</h3>
+          <ul>
+            <li><a class="active" href="javascript:;" data-id="0">精选</a></li>
+            <li><a href="javascript:;" data-id="1">美食</a></li>
+            <li><a href="javascript:;" data-id="2">百货</a></li>
+            <li><a href="javascript:;" data-id="3">个护</a></li>
+            <li><a href="javascript:;" data-id="4">预告</a></li>
+          </ul>
+        </div>
+        <div class="tab-content">
+          <div class="item active" data-id='0'><img src="./images/tab00.png" alt="" /></div>
+          <div class="item" data-id='1'><img src="./images/tab01.png" alt="" /></div>
+          <div class="item" data-id='2'><img src="./images/tab02.png" alt="" /></div>
+          <div class="item" data-id='3'><img src="./images/tab03.png" alt="" /></div>
+          <div class="item" data-id='4'><img src="./images/tab04.png" alt="" /></div>
+        </div>
+      </div> -->
+      <div>
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+        This is for test
+      </div>
+      <script>
+        // use event delegation 
+        // 1. get the parent element
+        // const ul = document.querySelector('ul')
+
+        // // 2. add event to the element
+        // ul.addEventListener('click', function(e){
+        //     // console.log(e.target)
+        //     if(e.target.tagName === 'A') {
+        //         document.querySelector('.tab-nav .active').classList.remove('active')
+        //         e.target.classList.add('active')
+
+        //         // 3.  use customize attributes to get the content element
+        //         // 3.1 add a new data-id to each div in tab-content
+        //         const i = +e.target.dataset.id  // string need to be transfer to number
+
+        //         document.querySelector('.tab-content .active').classList.remove('active')
+        //         document.querySelector(`.tab-content .item:nth-child(${i + 1})`).classList.add('active')
+
+        //     }  
+            
+        // })
+
+
+        // loading event
+        // document.addEventListener('DOMContentLoaded', function(){
+        //     // alert(1)
+        // })
+
+
+        // scroll event
+        const div = document.querySelector('div')
+        // div.addEventListener('scroll', function(){
+        //     // console.log('scrolling')
+        //     // get the scroll top 
+        //     console.log(div.scrollTop)
+
+        // })
+
+        window.addEventListener('scroll', function(){
+            // get the height window scrolled
+            // get html element
+             const n = document.documentElement.scrollTop
+             if(n >= 100) {
+                div.style.display = 'block'
+             } else {
+                div.style.display = 'no'
+             }
+        }) 
+      </script>
+</body>
+</html>
