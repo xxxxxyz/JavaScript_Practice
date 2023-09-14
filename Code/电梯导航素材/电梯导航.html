@@ -1216,6 +1216,9 @@
   </div>
   <script>
 
+    // section I
+    (function(){
+      const entry = document.querySelector('.xtx_entry')
     const elevator = document.querySelector('.xtx-elevator')
     // 1. when page scroll down above 300px, display the lift sidebar
     window.addEventListener('scroll', function(){
@@ -1226,7 +1229,7 @@
       // } else {
       //   elevator.style.opacity = 0
       // }
-      elevator.style.opacity = n >= 300 ? 1 : 0
+      elevator.style.opacity = n >= entry.offsetTop ? 1 : 0
 
     })
 
@@ -1235,6 +1238,40 @@
     backTop.addEventListener('click', function() {
       document.documentElement.scrollTop = 0
     })
+
+    // resize event window size change
+    /* window.addEventListener('resize', function(){
+      console.log('1')
+    }) */
+
+    })();
+    // section II
+    (function(){
+        // get the parent element and add event delegation
+        const list = document.querySelector('.xtx-elevator-list')
+        // add event 
+        list.addEventListener('click', function(e) {
+           if(e.target.tagName === 'A') {
+            // if active exist remove it and  add the active to selected element
+            const old = document.querySelector('.xtx-elevator-list .active')
+            // console.log(old) // null
+            if(old) old.classList.remove('active')
+            // add active
+            e.target.classList.add('active')
+
+            // 利用模版字符串找到对应的大区块
+            const liName = e.target.dataset.name
+            // select the large section
+            const section = document.querySelector(`.xtx_goods_${liName}`)
+            
+            const position = section.offsetTop
+
+            document.documentElement.scrollTop = position // scroll the page
+           }
+        })
+
+    })();
+
   </script>
 </body>
 

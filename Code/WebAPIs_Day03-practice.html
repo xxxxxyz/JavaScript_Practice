@@ -15,17 +15,24 @@
             width: 200px;
             background-color: blue;
         } */
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px;
+        }
     </style>
 </head>
 <body>
     <!-- <div class="father"><div class="son"></div></div> -->
-    <ul>
+    <!-- <ul>
         <li>1</li>
         <li>2</li>
         <li>3</li>
         <li>4</li>
         <li>5</li>
-    </ul>
+    </ul> -->
+    <div></div>
     <script>
         // const fa = document.querySelector('.father')
         // const son = document.querySelector('.son')
@@ -45,13 +52,21 @@
 
         // Event Delegation
         // click each li  the current font color change to red
-        const ul = document.querySelector('ul')
+        /* const ul = document.querySelector('ul')
         ul.addEventListener('click', function(e){
             // e.target.style.color = 'red'
             if(e.target.tagName === 'LI') {
                 e.target.style.color = 'red'
             }
-        })
+        }) */
+
+        // offsetLeft offsetTop
+        const div = document.querySelector('div')
+        console.log(div.offsetLeft)
+        console.log(div.offsetTop)
+
+
+
     </script>
 </body>
 </html>
