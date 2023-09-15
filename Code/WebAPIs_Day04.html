@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <script>
+        //new date obj instantiate current 
+        // const date = new Date()
+        // console.log(date)
+
+        // // get the customize date
+        // const date1 = new Date('2022-5-1') // instantiate
+        // console.log(date1)
+
+        // date method
+        // console.log(date.getFullYear())
+        // console.log(date.getMonth() + 1) //  0-11
+        // console.log(date.getDate()) // Day of the Month
+        // console.log(date.getDay()) // Friday Sunday is 0 0-6
+        
+        const div = document.querySelector('div')
+        const date = new Date()
+
+        // let h = date.getHours()
+        // let s = date.getSeconds()
+        // let min = date.getMinutes()
+        // h = h < 10? '0' + h : h
+        // s = s < 10? '0' + s : s
+        // min = min < 10? '0' + min : min
+        
+        
+        // function getMyDate() {
+        //     const date = new Date()
+        //     return `Today is ${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} ${h}:${min}:${s}`
+        // }
+
+        // div.innerHTML= getMyDate()
+        // setInterval(function(){
+        //     div.innerHTML= getMyDate()
+        // }, 1000)
+            // div.innerHTML = date.toLocaleDateString()
+
+            // div.innerHTML = date.toLocaleString()
+            
+        //     div.innerHTML = date.toLocaleTimeString()
+
+        //     setInterval(function(){
+        //         const date = new Date()
+        //         div.innerHTML = date.toLocaleTimeString()
+
+        // },1000)
+
+ 
+        // Timestamp
+        // 1. console.log(new Date().getTime())
+        // 2. +new Date()
+        // console.log(+new Date())
+        //3. Date.now()
+        console.log(+new Date())
+        console.log('-------------------')
+        console.log(+new Date('2023-09-15 18:30:00'))
+        
+        
+    </script>
+</body>
+</html>
