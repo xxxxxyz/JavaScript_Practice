@@ -66,6 +66,8 @@
     const gender = document.querySelector('.gender')
     const salary = document.querySelector('.salary')
     const city = document.querySelector('.city')
+    const tbody = document.querySelector('tbody')
+    const items = document.querySelectorAll('[name]')
 
     // 1. click component
     const arr = []
@@ -73,18 +75,68 @@
     const info =document.querySelector('.info')
     info.addEventListener('submit', function(e){
       e.preventDefault() // prevent default event
+
+      // 表单验证，如果不通过，直接中断
+      // 获取所有带有name 属性的元素
+      // 遍历循环
+      for(let i = 0; i < items.length; i++) {
+        if(items[i].value === '') {
+          return alert('输入内容不能为空')
+        }
+      }
+
       // create new obj
       const obj = {
         stuId: arr.length + 1,
         uname: uname.value,
         age: age.value,
         gender: gender.value,
+        salary: salary.value,
         city: city.value, 
       }
       arr.push(obj)
       // clean the table
-      info.reset()
+      this.reset()
+      // render function
+      render()
+
     })
+
+    // 2. render the data add or delete
+    function render() {
+      // clean tbody
+      tbody.innerHTML = ''
+
+      for(let i = 0; i < arr.length; i++) {
+        const tr = document.createElement('tr')
+        tr.innerHTML = `
+          <td>${arr[i].stuId}</td>
+          <td>${arr[i].uname}</td>
+          <td>${arr[i].age}</td>
+          <td>${arr[i].gender}</td>
+          <td>${arr[i].salary}</td>
+          <td>${arr[i].city}</td>
+          <td>
+            <a href="javascript:" data-id=${i}>删除</a>
+          </td>
+        `    
+          // add node
+          tbody.appendChild(tr)
+      }
+    }
+
+      // 3. delete section 
+      tbody.addEventListener('click', function(e){
+        if(e.target.tagName === 'A') {
+          // get current data-id
+          // console.log(e.target.dataset.id)
+          // delete the relative data
+          arr.splice(e.target.dataset.id, 1)
+          render()  // rerender 
+        }
+      })
+
+
 
   </script>
 
