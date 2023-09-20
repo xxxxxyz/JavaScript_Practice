@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+          position: relative;
+          width: 1000px;
+          height: 200px;
+          background-color: pink;
+          margin: 100px auto;
+          text-align: center;
+          font-size: 50px;
+          line-height: 200px;
+          font-weight: 700;
+        }
+    
+        .box1 {
+          position: absolute;
+          right: 20px;
+          top: 10px;
+          width: 20px;
+          height: 20px;
+          background-color: skyblue;
+          text-align: center;
+          line-height: 20px;
+          font-size: 16px;
+          cursor: pointer;
+        }
+      </style>
+</head>
+<body>
+      <!-- <div class="box">
+        我是广告
+        <div class="box1">X</div>
+      </div>
+      <div class="box">
+        我是广告
+        <div class="box1">X</div>
+      </div>
+      <div class="box">
+        我是广告
+        <div class="box1">X</div>
+      </div> -->
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
+    <script>
+        // Parent and child Nodes
+        /* const box1 = document.querySelector('.box1')        
+        
+        box1.addEventListener('click', function() {
+            box1.parentNode.style.display = 'none'
+        }) */
+
+       /*  const closeBtn = document.querySelectorAll('box1')
+        for(let i = 0; i < closeBtn.length; i++) {
+            closeBtn.addEventListener('click', function() {
+                closeBtn[i].parentNode.style.display = 'non'
+            })
+        } */
+
+
+        // childNodes or children
+        /* const ul = document.querySelector('ul')
+        console.log(ul.children) // 伪数组 选择的最近一级的children */
+
+
+        // sibling Node
+
+        // create Node  
+        const div = document.createElement('div')
+        console.log(div)
+
+        // add node 
+        document.body.appendChild(div)
+        const li = document.createElement('li')
+        const ul = document.querySelector('ul')
+        li.innerHTML = "I'm the smallest child."
+        ul.appendChild(li)
+
+        // insertBefore
+        ul.children[0]
+        ul.insertBefore(li, ul.children[0])
+
+        //  clone node
+        // const li1 = ul.children[0].cloneNode(true)
+        console.log(li1)
+        ul.appendChild(ul.children[0].cloneNode(true)) // clone the first child of the ul and clone it add to the end
+
+
+    </script>
+</body>
+</html>

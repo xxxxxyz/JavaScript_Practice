@@ -1251,7 +1251,7 @@
         const list = document.querySelector('.xtx-elevator-list')
         // add event 
         list.addEventListener('click', function(e) {
-           if(e.target.tagName === 'A') {
+           if(e.target.tagName === 'A' && e.target.dataset.name) {
             // if active exist remove it and  add the active to selected element
             const old = document.querySelector('.xtx-elevator-list .active')
             // console.log(old) // null
@@ -1269,8 +1269,38 @@
             document.documentElement.scrollTop = position // scroll the page
            }
         })
+        
+        // scroll page and add active mode to the relative section
+        
+        window.addEventListener('scroll',function(){
+          const old = document.querySelector('.xtx-elevator-list .active')
+          if(old) old.classList.remove('active')
+
+          // find out the current window position
+          // get all the large section box
+          const panelNew = document.querySelector('.xtx_goods_new')
+          const panelPopular = document.querySelector('.xtx_goods_popular')
+          const panelBrand = document.querySelector('.xtx_goods_brand')
+          const panelTopic = document.querySelector('.xtx_goods_topic')
+
+          const n = document.documentElement.scrollTop
+          if(n >= panelNew.offsetTop && n <= panelPopular.offsetTop) {
+            // select new list
+            document.querySelector('[data-name=new]').classList.add('active')
+          } else if(n >= panelPopular.offsetTop && n <= panelBrand.offsetTop) {
+              document.querySelector('[data-name=popular]').classList.add('active')
+            } else if(n >= panelBrand.offsetTop && n <= panelTopic.offsetTop) {
+             document.querySelector('[data-name=brand]').classList.add('active')
+            } else if(n >= panelTopic.offsetTop) {
+             document.querySelector('[data-name=topic]').classList.add('active')
+
+           }
+        })
+
 
     })();
+
+
 
   </script>
 </body>
