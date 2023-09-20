@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM</title>
+</head>
+<body>
+    <button>前进</button>
+    <button>后退</button>
+    <!-- <div>这是广告</div> -->
+
+    <a href="http://www.itcast.cn">支付成功后, 5秒钟之后跳转</a>
+    <script>
+        // document.querySelector
+        // window.document.querySelector() // window 可以省略
+        // console.log(document === window.document)  
+        /* var number = 10
+        console.log(window.number) */
+
+
+       /*  // setTimeout()
+        const hello = setTimeout(function(){
+            console.log('Hello')
+        }, 2000)
+
+        // clean the setTimeout()
+        clearTimeout(hello) */
+
+        /* // practice create a ads and disappear in 5s
+        const div = document.querySelector('div')
+        const ads = setTimeout(function(){
+            div.style.display = 'none'
+        }, 5000)
+        
+        // location
+        //  console.log(window.location)
+        // console.log(location.href)
+        // 1. href 经常用href 利用js来跳转页面
+        location.href = 'http://www.google.com' */
+
+        // get the link element
+        const a = document.querySelector('a')
+        let num = 5
+        
+        // set timer
+        let timerId = setInterval(function(){
+            num--
+            a.innerHTML = `支付成功后${num}秒后跳转`
+            if(num === 0) {
+                clearInterval(timerId)
+                location.href = 'http://www.itcast.cn'
+            }
+        }, 1000)
+        // reload true 表示强制刷新
+
+
+        // navigator -- userAgent
+        
+        // history back(), forward(), go()
+        const forward = document.querySelector('button:first-child')
+        const back = forward.nextElementSibling
+
+        back.addEventListener('click',function(){
+            history.back()
+        })
+        forward.addEventListener('click', function(){
+            history.forward()
+        })
+
+        
+    </script>
+</body>
+</html>
