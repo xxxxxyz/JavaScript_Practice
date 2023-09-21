@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // localStorage
+        localStorage.setItem('uname', 'Dr Pink')
+
+        // getItem 
+        console.log(localStorage.getItem('uname'))
+
+        // remove the item
+        // localStorage.removeItem('uname')
+
+        // edit the exist value
+        localStorage.setItem('uname', 'Dr Black')
+
+        // JSON.stringify()
+        const obj = {
+            uname: 'Pink',
+            gender: 'Male',
+            hometown: 'Beijing',
+            salary: 1000,
+        }
+        localStorage.setItem('obj', JSON.stringify(obj))
+        
+        console.log(JSON.parse(localStorage.getItem('obj')))
+    </script>
+</body>
+</html>
