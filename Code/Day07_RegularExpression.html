@@ -6,7 +6,21 @@
     <title>Document</title>
 </head>
 <body>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <button>submit</button>
+    <div>123</div>
     <script>
+        // 对敏感词进行筛选 case study
+        const tx = document.querySelector('textarea')
+        const div = document.querySelector('div')
+        const button = document.querySelector('button')
+        
+        button.addEventListener('click', function(){
+           div.innerHTML = tx.value.replace(/激情|基情/g, '**')
+           tx.value = ''
+        })
+
+        
         // regular expression
         // const str = 'I am Zoe, I am currently working as a front end developer.'
         // /* // 1. 定义规则
@@ -19,62 +33,73 @@
         //  console.log(reg.exec(str))
 
          // exact match
-        console.log(/^哈$/.test('哈')) // => true
-        console.log(/^哈$/.test('哈哈')) // => false
-        console.log('-------------------') 
+        // console.log(/^哈$/.test('哈')) // => true
+        // console.log(/^哈$/.test('哈哈')) // => false
+        // console.log('-------------------') 
         
-        // quantifier
-        // * 量词出现 >= 0次
-        console.log(/^哈*$/.test('哈哈')) // => true
-        console.log(/^哈*$/.test('哈了个哈')) // => false
+        // // quantifier
+        // // * 量词出现 >= 0次
+        // console.log(/^哈*$/.test('哈哈')) // => true
+        // console.log(/^哈*$/.test('哈了个哈')) // => false
         
-        // + 量词，出现 >= 1 次
-        console.log('-------------------')
-        console.log(/^哈+$/.test('哈哈')) // => true
-        console.log(/^哈+$/.test('哈了个哈')) // => false
+        // // + 量词，出现 >= 1 次
+        // console.log('-------------------')
+        // console.log(/^哈+$/.test('哈哈')) // => true
+        // console.log(/^哈+$/.test('哈了个哈')) // => false
         
-        // ? 零次，0 || 1
-        console.log('-------------------') 
-        console.log(/^哈?$/.test('')) // => true
-        console.log(/^哈?$/.test('哈')) // => true
-        console.log(/^哈?$/.test('哈哈')) // => false
+        // // ? 零次，0 || 1
+        // console.log('-------------------') 
+        // console.log(/^哈?$/.test('')) // => true
+        // console.log(/^哈?$/.test('哈')) // => true
+        // console.log(/^哈?$/.test('哈哈')) // => false
         
-        // {n}
-        console.log('-------------------') 
-        console.log(/^哈{4}$/.test('哈哈哈哈')) // => true
-        console.log(/^哈{4}$/.test('哈哈哈')) // => false
+        // // {n}
+        // console.log('-------------------') 
+        // console.log(/^哈{4}$/.test('哈哈哈哈')) // => true
+        // console.log(/^哈{4}$/.test('哈哈哈')) // => false
         
-        // {n,} >= n
-        console.log('-------------------') 
-        console.log(/^哈{4,}$/.test('哈哈哈哈')) // => true
-        console.log(/^哈{4,}$/.test('哈哈哈')) // => false
-        console.log(/^哈{4,}$/.test('哈哈哈哈哈')) // => true
+        // // {n,} >= n
+        // console.log('-------------------') 
+        // console.log(/^哈{4,}$/.test('哈哈哈哈')) // => true
+        // console.log(/^哈{4,}$/.test('哈哈哈')) // => false
+        // console.log(/^哈{4,}$/.test('哈哈哈哈哈')) // => true
         
-        // {n, m}  >= n && <= m
-        console.log('-------------------') 
-        console.log(/^哈{4,8}$/.test('哈哈哈哈')) // => true
-        console.log(/^哈{4,8}$/.test('哈哈哈哈哈哈哈哈哈哈哈')) // => false
-        console.log('-------------------') 
+        // // {n, m}  >= n && <= m
+        // console.log('-------------------') 
+        // console.log(/^哈{4,8}$/.test('哈哈哈哈')) // => true
+        // console.log(/^哈{4,8}$/.test('哈哈哈哈哈哈哈哈哈哈哈')) // => false
+        // console.log('-------------------') 
         
-        // [] 只选一个
-        console.log(/^[abc]$/.test('a')) // true
-        console.log(/^[abc]$/.test('b')) // true
-        console.log(/^[abc]$/.test('c')) // true
-        console.log(/^[abc]$/.test('bc')) // false
-        console.log(/^[abc]{2}$/.test('bc')) // true
-        console.log(/[abc]/.test('bc')) // true
-        console.log('-------------------') 
+        // // [] 只选一个
+        // console.log(/^[abc]$/.test('a')) // true
+        // console.log(/^[abc]$/.test('b')) // true
+        // console.log(/^[abc]$/.test('c')) // true
+        // console.log(/^[abc]$/.test('bc')) // false
+        // console.log(/^[abc]{2}$/.test('bc')) // true
+        // console.log(/[abc]/.test('bc')) // true
+        // console.log('-------------------') 
         
-        // [a-z] 只选一个
-        console.log(/^[a-zA-Z]$/.test('c')) // true
-        console.log(/^[0-9]$/.test('9')) // true
-        console.log(/^[a-zA-Z0-9]$/.test('2')) // true
-        console.log(/^[a-zA-Z0-9]{6,}$/.test('2abcdA0j')) // true
-        console.log('-------------------') 
+        // // [a-z] 只选一个
+        // console.log(/^[a-zA-Z]$/.test('c')) // true
+        // console.log(/^[0-9]$/.test('9')) // true
+        // console.log(/^[a-zA-Z0-9]$/.test('2')) // true
+        // console.log(/^[a-zA-Z0-9]{6,}$/.test('2abcdA0j')) // true
+        // console.log('-------------------') 
 
-        // [^a-z] 取反
-        // .排除换行符
-        
-        </script>
+        // // [^a-z] 取反
+        // // .排除换行符
+    
+
+        // // //i //g
+        // console.log(/^java$/.test('java')) // true
+        // console.log(/^java$/.test('JAVA')) // false
+        // console.log(/^java$/i.test('JAVA')) // true
+
+        // // replace(/regExp/, 'replace str')
+        // const str = 'java 是一门变成语言, JAVA需要努力学'
+        // const newStr = str.replace(/java/gi, 'JavaScript')
+        // console.log(newStr)
+
+    </script>
 </body>
 </html> 
