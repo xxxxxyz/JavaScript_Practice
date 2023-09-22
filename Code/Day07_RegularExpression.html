@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // regular expression
+        // const str = 'I am Zoe, I am currently working as a front end developer.'
+        // /* // 1. 定义规则
+        //  const reg = /developer/
+        // // 2. 是否匹配
+        // console.log(reg.test(str)) // => true */
+
+        // // regObj.exec()
+        //  const reg = /developer/
+        //  console.log(reg.exec(str))
+
+         // exact match
+        console.log(/^哈$/.test('哈')) // => true
+        console.log(/^哈$/.test('哈哈')) // => false
+        console.log('-------------------') 
+        
+        // quantifier
+        // * 量词出现 >= 0次
+        console.log(/^哈*$/.test('哈哈')) // => true
+        console.log(/^哈*$/.test('哈了个哈')) // => false
+        
+        // + 量词，出现 >= 1 次
+        console.log('-------------------')
+        console.log(/^哈+$/.test('哈哈')) // => true
+        console.log(/^哈+$/.test('哈了个哈')) // => false
+        
+        // ? 零次，0 || 1
+        console.log('-------------------') 
+        console.log(/^哈?$/.test('')) // => true
+        console.log(/^哈?$/.test('哈')) // => true
+        console.log(/^哈?$/.test('哈哈')) // => false
+        
+        // {n}
+        console.log('-------------------') 
+        console.log(/^哈{4}$/.test('哈哈哈哈')) // => true
+        console.log(/^哈{4}$/.test('哈哈哈')) // => false
+        
+        // {n,} >= n
+        console.log('-------------------') 
+        console.log(/^哈{4,}$/.test('哈哈哈哈')) // => true
+        console.log(/^哈{4,}$/.test('哈哈哈')) // => false
+        console.log(/^哈{4,}$/.test('哈哈哈哈哈')) // => true
+        
+        // {n, m}  >= n && <= m
+        console.log('-------------------') 
+        console.log(/^哈{4,8}$/.test('哈哈哈哈')) // => true
+        console.log(/^哈{4,8}$/.test('哈哈哈哈哈哈哈哈哈哈哈')) // => false
+        console.log('-------------------') 
+        
+        // [] 只选一个
+        console.log(/^[abc]$/.test('a')) // true
+        console.log(/^[abc]$/.test('b')) // true
+        console.log(/^[abc]$/.test('c')) // true
+        console.log(/^[abc]$/.test('bc')) // false
+        console.log(/^[abc]{2}$/.test('bc')) // true
+        console.log(/[abc]/.test('bc')) // true
+        console.log('-------------------') 
+        
+        // [a-z] 只选一个
+        console.log(/^[a-zA-Z]$/.test('c')) // true
+        console.log(/^[0-9]$/.test('9')) // true
+        console.log(/^[a-zA-Z0-9]$/.test('2')) // true
+        console.log(/^[a-zA-Z0-9]{6,}$/.test('2abcdA0j')) // true
+        console.log('-------------------') 
+
+        // [^a-z] 取反
+        // .排除换行符
+        
+        </script>
+</body>
+</html> 
