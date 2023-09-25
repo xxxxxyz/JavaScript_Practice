@@ -77,7 +77,38 @@
     </div>
   </div>
   <script>
-    
+    // tab栏切换
+    const tabNav = document.querySelector('.tab-nav')
+    tabNav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A') {
+        //取消上一个active
+        tabNav.querySelector('.active').classList.remove('active')
+        // 给选中目标添加 active
+        e.target.classList.add('active')
+        // 获取所有的tab-pane 先全部隐藏，再显示当前选中element
+        const tab_pane =document.querySelectorAll('.tab-pane')
+
+        for(let i = 0; i < tab_pane.length; i++) {
+          tab_pane[i].style.display = 'none'
+        }
+        tab_pane[e.target.dataset.id].style.display = 'block'
+      }
+    })
+
+
+    //点击登录跳转
+     const form = document.querySelector('form')
+     const agree = document.querySelector('[name=agree]')
+     const username = document.querySelector('[name=username]')
+     form.addEventListener('submit', function(e){
+        e.preventDefault()
+        if(!agree.checked) {
+          alert('请阅读服务条款并同意')
+        }
+        // 记录用户名到本地存储
+        localStorage.setItem('xtx-uname', username.value)
+        location.href = './index.html'
+     })
   </script>
 </body>
 
