@@ -301,8 +301,26 @@
       return true
     }
 
-
+    // 勾选用户协议
+    const agree = document.querySelector('.icon-queren')
+    agree.addEventListener('click',function(){
+      agree.classList.toggle('icon-queren2')
+    })
     // submit the form 
+    const form = document.querySelector('form')
+    form.addEventListener('submit', function(e){
+      if(!agree.classList.contains('icon-queren2')) {
+        alert('请勾选同意协议')
+        //阻止提交
+        e.preventDefault()
+      } 
+      if(!verifyName()) e.preventDefault()
+      if(!verifyPhone()) e.preventDefault()
+      if(!verifyCode()) e.preventDefault()
+      if(!verifyPassword()) e.preventDefault()
+      if(!verifyRePassword()) e.preventDefault()
+
+    })
   </script>
 </body>
 
