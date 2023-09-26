@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       /*  // 不推荐用  var声明变量，因为var 不产生 block level scope
+        for(let i = 0; i < 3; i++) {
+            var a = 1
+            // console.log(i)
+        }
+
+        // console.log(a) */
+        let a = 1
+        let b = 2
+        function f() {
+            // let a = 1
+            function g() {
+                a = 2
+                console.log(a)
+            }
+            g()
+            console.log(a)
+        }
+        f()
+        console.log(a)
+
+
+        
+    </script>
+</body>
+</html>
