@@ -123,15 +123,99 @@
         getSum(2,3,4,5,435,34) */
 
 
-        // 剩余参数 ... 提倡使用剩余参数
-        function getSum(...arr) {
+        // 剩余参数 ... 提倡使用剩余参数 rest parameters
+        /* function getSum(...arr) {
             let sum = 0
             for (let i = 0; i < arr.length; i++) {
                 sum += arr[i] 
             }
         }
         getSum(1,2,3,4)
-        getSum(1,2,3,4,5)
+        getSum(1,2,3,4,5) */
+
+        // practice 
+        /* const arr = [1,2,3]
+        // ...arr === 1,2,3
+        // console.log(...arr)
+        console.log(Math.max(...arr)) // => 3
+        const arr2 = [3,4,5]
+
+        const arr3 = [...arr,...arr2]
+        console.log(arr3) */
+
+
+        //** Arrow Function **//
+        /* function fn() {
+            console.log('124')
+        } */
+
+       /*  const fn = () => {
+            console.log('124')
+        }
+        fn()  // 124 */
+
+        /* const fn = (x) => {
+            console.log(x)
+        }
+
+        fn(1) // 1 */
+
+        /* const fn = x => {
+            console.log(x)
+        }
+        fn(1) //1 */
+
+        //只有一行代码，可以省略 {}
+       /*  const fn = x => console.log(x) 
+        fn(2) // 2 */
+
+        // 省略 return
+        /* const fn = x => x + x
+        console.log(fn(1)) */
+        // 直接返回一个对象
+       /*  const fn1 = (uname) => ({uname: uname})
+        console.log(fn1('Jacky')) */
+
+
+        //** arrow function parameters
+        /* const getSum = (...arr) => {
+            let sum = 0
+            for (let i = 0; i< arr.length; i++) {
+                sum += arr[i]
+            }
+            return sum
+        }
+        console.log(getSum(2,4,3)) // => 9 */
+
+        //** arrow function this
+        /* const fn = () => {
+            console.log(this)  // this指向window
+        }
+        fn()  */
+
+       /*  const obj = {
+            uname: 'pink',
+            sayHi: () => {
+                console.log(this) //this的指向？ => window
+            }
+        }
+
+        obj.sayHi() */
+
+        // 3
+        const obj = {
+            uname: 'pink',
+            sayHi: function () {
+                console.log(this) // obj
+                let i = 10
+                const count = () => {
+                    console.log(this)  // obj
+                }
+                count()
+            }
+        }
+        obj.sayHi()
+    
     </script>
 </body>
 </html>
