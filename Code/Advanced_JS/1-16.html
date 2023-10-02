@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       /*  // 不推荐用  var声明变量，因为var 不产生 block level scope
+        for(let i = 0; i < 3; i++) {
+            var a = 1
+            // console.log(i)
+        }
+
+        // console.log(a) */
+        // let a = 1
+        // let b = 2
+        // function f() {
+        //     // let a = 1
+        //     function g() {
+        //         a = 2
+        //         console.log(a)
+        //     }
+        //     g()
+        //     console.log(a)
+        // }
+        // f()
+        // console.log(a)
+
+        // // garbage collection
+        // const arr = [1,2,3,4]
+        // arr = null // 通过赋值null来释放内存
+        
+        // // 引用计数法
+        // let person = {
+        //     age: 19,
+        //     name: '佩奇',
+        // }
+        
+        // let p = person // 被引用两次
+        // person = 1      // 对象引用次数是1
+        // p = null    // 被引用次数 0
+
+
+        // closure
+        // function outer() {
+        //     let a = 10 
+        //     function fn() {
+        //         console.log(a)
+        //     }
+        //     fn()
+        // }
+        // outer()
+
+        // 通过闭包实现外部可以使用和访问函数内部变量
+        // function outer() {
+        //     let a = 10
+        //     function fn() {
+        //         console.log(a)
+        //     }
+        //     return fn
+        // }
+        // // 外部如何使用？ => outer 内部  return fn
+        // // outer() === fn  === function fn() {}
+        // const fun = outer()
+        // fun() // => 10 实现外部获得函数内部的值
+
+
+        // 闭包应用  -- 实现数据私有 -- 统计函数调用次数
+        /* let i = 0
+        function fn() {
+            i++
+            console.log(i)
+        } */
+
+        // i 作为全局变量容易被任意修改，修改为闭包
+        /* function  count () {
+            let i = 0
+            function fn() {
+                i++
+                console.log(i)
+            }
+            return fn */
+        // }  // 内存泄漏 Memory Leak
+        /* const fun = count()
+
+        //Variable hosting 把所有当前作用域下， var声明的变量提升到当前作用的最前面，只提升声明，不提升赋值
+        console.log(num + '件') // => undefined 
+        var num = 10
+
+        function fn() {
+            console.log(num) // => undefined
+            var num = 10
+        }
+        fn() */
+
+
+        //** function hosting 会把所有函数声明提升到当前作用域的最前面 只提升函数声明，不提升函数调用
+       /*  fn()
+        function fn() {
+            console.log('函数提升')
+        } */
+
+        //** 函数表达式不存在提升现象
+        /* fun() // error var相当于声明变量，提升fun变量，没有提升赋值
+        var fun = function() {
+            console.log('函数表达式')
+         } */
+        //函数提升出现在相同作用域当中
+
+
+        //** 函数的参数
+        // 动态参数 arguments 包含了调佣函数式传入的所有实参,参数数量不定
+        /* function getSum() {
+            // console.log(arguments)
+            let sum = 0
+            for(let i = 0; i < arguments.length; i++) {
+                sum += arguments[i]
+            }
+            console.log(sum)
+        }
+        getSum(2,3,4,5,435,34) */
+
+
+        // 剩余参数 ... 提倡使用剩余参数 rest parameters
+        /* function getSum(...arr) {
+            let sum = 0
+            for (let i = 0; i < arr.length; i++) {
+                sum += arr[i] 
+            }
+        }
+        getSum(1,2,3,4)
+        getSum(1,2,3,4,5) */
+
+        // practice 
+        /* const arr = [1,2,3]
+        // ...arr === 1,2,3
+        // console.log(...arr)
+        console.log(Math.max(...arr)) // => 3
+        const arr2 = [3,4,5]
+
+        const arr3 = [...arr,...arr2]
+        console.log(arr3) */
+
+
+        //** Arrow Function **//
+        /* function fn() {
+            console.log('124')
+        } */
+
+       /*  const fn = () => {
+            console.log('124')
+        }
+        fn()  // 124 */
+
+        /* const fn = (x) => {
+            console.log(x)
+        }
+
+        fn(1) // 1 */
+
+        /* const fn = x => {
+            console.log(x)
+        }
+        fn(1) //1 */
+
+        //只有一行代码，可以省略 {}
+       /*  const fn = x => console.log(x) 
+        fn(2) // 2 */
+
+        // 省略 return
+        /* const fn = x => x + x
+        console.log(fn(1)) */
+        // 直接返回一个对象
+       /*  const fn1 = (uname) => ({uname: uname})
+        console.log(fn1('Jacky')) */
+
+
+        //** arrow function parameters
+        /* const getSum = (...arr) => {
+            let sum = 0
+            for (let i = 0; i< arr.length; i++) {
+                sum += arr[i]
+            }
+            return sum
+        }
+        console.log(getSum(2,4,3)) // => 9 */
+
+        //** arrow function this
+        /* const fn = () => {
+            console.log(this)  // this指向window
+        }
+        fn()  */
+
+       /*  const obj = {
+            uname: 'pink',
+            sayHi: () => {
+                console.log(this) //this的指向？ => window
+            }
+        }
+
+        obj.sayHi() */
+
+        // 3
+       /*  const obj = {
+            uname: 'pink',
+            sayHi: function () {
+                console.log(this) // obj
+                let i = 10
+                const count = () => {
+                    console.log(this)  // obj
+                }
+                count()
+            }
+        }
+        obj.sayHi() */
+    
+        //** array destructuring
+        // 1.0 basic
+        // const arr = [100, 60, 80]
+        // const [max, min, average] = arr
+        // console.log(max)  // 100
+        // console.log(min) // 60
+        // console.log(average) //80
+
+        // 交换变量
+        /* let a = 0
+        let b = 4;
+        [b,a] = [a,b]
+        console.log(a,b) */
+
+        // 2.0 跳过某些元素
+        // const [max, ,average] = arr
+        // console.log(average) // 80
+
+        // 3.0 rest 
+        /* const [max, ...rest] = arr
+        console.log(rest) // [ 60, 80] */
+
+        //practice
+        // const arr = [1,2,3]
+        /* const str = 'pink'
+        [1,2,3].map(function(item) {
+            console.log(item)
+        })  // error */
+
+        // practice 2
+        /* const pc = ['haier', 'lenovo', 'xiaomi', 'fangzheng']
+        const [hr, lx, mi, fz] = pc
+        console.log(hr,lx,mi,fz) */
+
+        // 按需导入
+        // const [a,b,,d] = [1,2,3,4]
+        // console.log(d) // =>  d4
+
+        // 多维数组解构
+       /*  const arr = [1,2,[3,4]]
+        console.log(arr[2][0]) // => 3
+        const [a,b,[c,d]] = [1,2,[3,4]] */
+        
+        // ** Object Destructuring
+        /* const {uname, gender} = {uname: 'pink', gender: 'male'}
+        // ===  const uname = obj.uname, gender = obj.gender 
+        //  属性名和变量名必须保持一致
+        console.log(uname) // => pink
+        console.log(gender) // => male */
+
+        // 重命名属性
+        // const {uname: username, gender}  = { uname: 'pink', gender: 'male'}  // const {旧变量名：新变量名} = obj 
+
+        // 数组对象 解构
+         /* const pig = [
+            {
+                name: '佩奇',
+                age: 18
+            }
+         ]
+         const [{name, age}] = pig
+         console.log(name) // 佩奇
+         console.log(age)  // 18 */
+
+        // class practice
+        // const pig = {name: 'peiqi', age: 6}
+        // 1. 解构该对象
+         /* const {name, age} = pig
+         console.log(name)
+         console.log(age) */
+
+         // 2. 请将 pig对象中的name 通过结构的形式改为uname
+        /*  const {name: uname, age} = pig
+         console.log(uname)  */
+
+         // 3. 请将数组对象完成商品名和价格的解构
+            /* const goods = [
+                {
+                    goodsName: 'Xiaomi',
+                    price: 1999
+                }
+            ]
+
+            const [{goodName, price }] = goods
+            console.log(goodName, price) */
+
+
+        // 多级对象解构
+        const pig = {
+            name: 'peiqi',
+            family: {
+                mum: 'mum',
+                dad: 'dad',
+                sister: 'sister',
+            }
+        }
+
+        const {name, family: {mum, dad, sister}} = pig
+        console.log(mum) // => 'mum'
+
+
+    </script>
+</body>
+</html>
