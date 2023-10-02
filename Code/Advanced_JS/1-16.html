@@ -203,7 +203,7 @@
         obj.sayHi() */
 
         // 3
-        const obj = {
+       /*  const obj = {
             uname: 'pink',
             sayHi: function () {
                 console.log(this) // obj
@@ -214,8 +214,109 @@
                 count()
             }
         }
-        obj.sayHi()
+        obj.sayHi() */
     
+        //** array destructuring
+        // 1.0 basic
+        // const arr = [100, 60, 80]
+        // const [max, min, average] = arr
+        // console.log(max)  // 100
+        // console.log(min) // 60
+        // console.log(average) //80
+
+        // 交换变量
+        /* let a = 0
+        let b = 4;
+        [b,a] = [a,b]
+        console.log(a,b) */
+
+        // 2.0 跳过某些元素
+        // const [max, ,average] = arr
+        // console.log(average) // 80
+
+        // 3.0 rest 
+        /* const [max, ...rest] = arr
+        console.log(rest) // [ 60, 80] */
+
+        //practice
+        // const arr = [1,2,3]
+        /* const str = 'pink'
+        [1,2,3].map(function(item) {
+            console.log(item)
+        })  // error */
+
+        // practice 2
+        /* const pc = ['haier', 'lenovo', 'xiaomi', 'fangzheng']
+        const [hr, lx, mi, fz] = pc
+        console.log(hr,lx,mi,fz) */
+
+        // 按需导入
+        // const [a,b,,d] = [1,2,3,4]
+        // console.log(d) // =>  d4
+
+        // 多维数组解构
+       /*  const arr = [1,2,[3,4]]
+        console.log(arr[2][0]) // => 3
+        const [a,b,[c,d]] = [1,2,[3,4]] */
+        
+        // ** Object Destructuring
+        /* const {uname, gender} = {uname: 'pink', gender: 'male'}
+        // ===  const uname = obj.uname, gender = obj.gender 
+        //  属性名和变量名必须保持一致
+        console.log(uname) // => pink
+        console.log(gender) // => male */
+
+        // 重命名属性
+        // const {uname: username, gender}  = { uname: 'pink', gender: 'male'}  // const {旧变量名：新变量名} = obj 
+
+        // 数组对象 解构
+         /* const pig = [
+            {
+                name: '佩奇',
+                age: 18
+            }
+         ]
+         const [{name, age}] = pig
+         console.log(name) // 佩奇
+         console.log(age)  // 18 */
+
+        // class practice
+        // const pig = {name: 'peiqi', age: 6}
+        // 1. 解构该对象
+         /* const {name, age} = pig
+         console.log(name)
+         console.log(age) */
+
+         // 2. 请将 pig对象中的name 通过结构的形式改为uname
+        /*  const {name: uname, age} = pig
+         console.log(uname)  */
+
+         // 3. 请将数组对象完成商品名和价格的解构
+            /* const goods = [
+                {
+                    goodsName: 'Xiaomi',
+                    price: 1999
+                }
+            ]
+
+            const [{goodName, price }] = goods
+            console.log(goodName, price) */
+
+
+        // 多级对象解构
+        const pig = {
+            name: 'peiqi',
+            family: {
+                mum: 'mum',
+                dad: 'dad',
+                sister: 'sister',
+            }
+        }
+
+        const {name, family: {mum, dad, sister}} = pig
+        console.log(mum) // => 'mum'
+
+
     </script>
 </body>
 </html>
