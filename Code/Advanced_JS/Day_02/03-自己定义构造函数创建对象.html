@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 创建一个猪 构造函数 
+    function Pig(uname,age) {
+      this.uname = uname
+      this.age = age
+    }
+    // new Pig('佩奇', 6)
+    // console.log(new Pig('佩奇', 6))
+    // console.log(new Pig('乔治', 3))
+    const p = new Pig('佩奇', 6)
+    console.log(p)
+    //  const pepa = { uname: '佩奇', age: 6 }
+    // const obj = new Object()
+
+
+  // 构造 Goods函数 包含属性name, price, count
+   function Goods(name,price,count) {
+      this.name = name
+      this.price = price
+      this.count = count 
+      this.sayHi = function() {
+        console.log('Hi!')
+      }   
+   }
+
+   const mi = new Goods('小米',1999,20)
+   const huawei = new Goods('华为',3999, 59)
+   const vivo = new Goods('Vivo',1888,100)
+   console.log(mi)
+   console.log(huawei)
+   console.log(vivo)
+
+    // const date = new Date('2022-4-8')
+    // console.log(date)
+
+    // 静态成员， 构造函数中的属性和方法 => 叫静态成员
+    Goods.num = 10
+    console.log(Goods.num)
+    Goods.sayHi = function () { }
+  </script>
+</body>
+
+</html>
