@@ -16,6 +16,7 @@
     // })
     // console.log(re)
 
+
     const arr = [
       {
         name: '小米',
@@ -27,6 +28,14 @@
       },
     ]
     // 找小米 这个对象，并且返回这个对象
+    const mi = arr.find(function(item){
+      // console.log(item)
+      return item.name === '小米'
+    })
+
+    console.log(mi)
+
+
     // const mi = arr.find(function (item) {
     //   // console.log(item)  //
     //   // console.log(item.name)  //
