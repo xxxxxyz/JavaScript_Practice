@@ -13,9 +13,10 @@
   <script>
     const spec = { size: '40cm*40cm', color: '黑色' }
     //1. 所有的属性值回去过来  数组
-    // console.log(Object.values(spec))
+    console.log(Object.values(spec))
     // 2. 转换为字符串   数组join('/') 把数组根据分隔符转换为字符串
-    // console.log(Object.values(spec).join('/'))
+    Object.values(spec).join('/')
+    console.log(Object.values(spec).join('/'))
     document.querySelector('div').innerHTML = Object.values(spec).join('/')
   </script>
 </body>
