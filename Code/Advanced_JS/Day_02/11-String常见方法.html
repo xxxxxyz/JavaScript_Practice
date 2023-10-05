@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //1. split 把字符串 转换为 数组  和 join() 相反
+   const str = 'pink, red'
+   const strArr = str.split()
+   console.log(strArr)
+
+   const str1 = '2023-10-5'
+   const newArr = str1.split('-')
+   console.log(newArr)
+
+   // 2. substring() return the new intercepting string
+   const str2 = 'hello, world'
+   const newStr2 = str2.substring(1,3)
+   console.log(newStr2)
+
+   // 2.1 combine with str.length()
+   const str3 = 'hello, zoe'
+   const newStr3 = str3.substring(str3.length - 3) // last 3 letter
+   console.log(newStr3)
+
+   // ** 3. startsWith()
+   const str4 = 'This is a good start.'
+   console.log(str4.startsWith('H')) // => false
+
+   console.log(str4.startsWith('h',1)) // => true
+   console.log(str4.startsWith('H',1)) // => false
+
+   // 4. includes()
+   console.log(str4.includes('is')) // => true
+   console.log(str4.includes('this')) // => false
+
+
+  </script>
+</body>
+
+</html>
