@@ -17,9 +17,11 @@
       console.log(this) // window
       console.log(x + y)
     }
+
+    // fun.call(thisArg,arg1,arg2,...)
     // 1. 调用函数  
     // 2. 改变 this 指向
-    fn.call(obj, 1, 2)
+    fn.call(obj, 1, 2) // fn中的 this 指向了obj
   </script>
 </body>
 

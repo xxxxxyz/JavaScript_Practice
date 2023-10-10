@@ -14,7 +14,7 @@
       age: 18
     }
     function fn(x, y) {
-      console.log(this) // {age: 18}
+      console.log(this) // {age: 18} 指向obj
       console.log(x + y)
     }
     // 1. 调用函数
@@ -27,7 +27,7 @@
     // const max = Math.max(1, 2, 3)
     // console.log(max)
     const arr = [100, 44, 77]
-    const max = Math.max.apply(Math, arr)
+    const max = Math.max.apply(Math, arr) // 可以指向 Math 对象，或不指向
     const min = Math.min.apply(null, arr)
     console.log(max, min)
     // 使用场景： 求数组最大值

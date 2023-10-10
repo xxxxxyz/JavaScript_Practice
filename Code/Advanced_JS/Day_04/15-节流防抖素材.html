@@ -20,32 +20,48 @@
 
 <body>
   <div class="box"></div>
+  <script src="./lodash.min.js"></script>
   <script>
     const box = document.querySelector('.box')
-    let i = 1  // 让这个变量++
-    // 鼠标移动函数
+    let i = 1
     function mouseMove() {
-      box.innerHTML = ++i
-      // 如果里面存在大量操作 dom 的情况，可能会卡顿
+      box.innerHTML = i++
     }
-    // console.log(mouseMove)
-    // 节流函数 throttle 
-    function throttle(fn, t) {
-      // 起始时间
-      let startTime = 0
-      return function () {
-        // 得到当前的时间
-        let now = Date.now()
-        // 判断如果大于等于 500 采取调用函数
-        if (now - startTime >= t) {
-          // 调用函数
-          fn()
-          // 起始的时间 = 现在的时间   写在调用函数的下面 
-          startTime = now
-        }
-      }
-    }
-    box.addEventListener('mousemove', throttle(mouseMove, 500))
+    // box.addEventListener('mousemove', mouseMove) 
+    // debounce 防抖处理， 500ms 之后执行
+    box.addEventListener('mousemove', _.debounce(mouseMove, 500)) 
+
+    
+
+
+
+
+
+    // const box = document.querySelector('.box')
+    // let i = 1  // 让这个变量++
+    // // 鼠标移动函数
+    // function mouseMove() {
+    //   box.innerHTML = ++i
+    //   // 如果里面存在大量操作 dom 的情况，可能会卡顿
+    // }
+    // // console.log(mouseMove)
+    // // 节流函数 throttle 
+    // function throttle(fn, t) {
+    //   // 起始时间
+    //   let startTime = 0
+    //   return function () {
+    //     // 得到当前的时间
+    //     let now = Date.now()
+    //     // 判断如果大于等于 500 采取调用函数
+    //     if (now - startTime >= t) {
+    //       // 调用函数
+    //       fn()
+    //       // 起始的时间 = 现在的时间   写在调用函数的下面 
+    //       startTime = now
+    //     }
+    //   }
+    // }
+    // box.addEventListener('mousemove', throttle(mouseMove, 500))
 
     // throttle(mouseMove, 500) === function () { console.log(1) }
 
