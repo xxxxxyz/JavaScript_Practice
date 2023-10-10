@@ -18,12 +18,13 @@
         baby: '小pink'
       }
     }
-    // 把对象转换为 JSON 字符串
-    // console.log(JSON.stringify(obj))
+    // 把对象转换为 JSON 字符串，变成普通类型，即与原对象无关
+    JSON.stringify(obj)
+    console.log(JSON.stringify(obj))
+    
+    // 把字符串转换成对象
     const o = JSON.parse(JSON.stringify(obj))
-    console.log(o)
-    o.family.baby = '123'
-    console.log(obj)
+    
   </script>
 </body>
 

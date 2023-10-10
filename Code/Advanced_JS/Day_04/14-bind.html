@@ -26,13 +26,17 @@
     fun()
 
     // 需求，有一个按钮，点击里面就禁用，2秒钟之后开启
-    document.querySelector('button').addEventListener('click', function () {
-      // 禁用按钮
-      this.disabled = true
-      window.setTimeout(function () {
-        // 在这个普通函数里面，我们要this由原来的window 改为 btn
+    const  btn = document.querySelector('button')
+    btn.addEventListener('click', function () {
+      //先禁用
+      this.disabled = true  // this 指向 btn
+      // 两秒后执行
+      setTimeout(function () {
+        // 在这个普通函数里，要把this的指向由原来的window 指向btn
         this.disabled = false
-      }.bind(this), 2000)   // 这里的this 和 btn 一样
+        // btn.disabled = false // 或者改成箭头函数
+        
+      }.bind(this), 2000) // bind 的作用域和 btn 中 fun 的this 一致
     })
   </script>
 </body>

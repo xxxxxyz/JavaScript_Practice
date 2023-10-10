@@ -20,6 +20,7 @@
     window.setTimeout(function () {
       console.log(this) // window 
     }, 1000)
+
     document.querySelector('button').addEventListener('click', function () {
       console.log(this)  // 指向 button
     })
@@ -29,6 +30,9 @@
       }
     }
     obj.sayHi()
+
+    // 箭头函数
+    
   </script>
 </body>
 
