@@ -22,13 +22,14 @@
     // console.log(o)
     // o.age = 20
     // console.log(o)
-    // console.log(obj)
+    // console.log(obj)   
     const o = {}
     Object.assign(o, obj)
     o.age = 20
     o.family.baby = '老pink'
     console.log(o)
-    console.log(obj)
+    console.log(obj.family.baby) // '老pink' 浅拷贝只拷贝最外层，内层拷贝的仍然是地址。
+     
   </script>
 </body>
 

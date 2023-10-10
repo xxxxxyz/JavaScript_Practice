@@ -12,10 +12,23 @@
   <div></div>
   <script>
     function getTime() {
-      document.querySelector('div').innerHTML = new Date().toLocaleString()
-      setTimeout(getTime, 1000)
+      // 获取并打印当前时间
+      document.querySelector('div').innerHTML = new Date().toLocaleString() 
+      setTimeout(getTime,1000)
     }
+
     getTime()
+
+
+
+
+
+
+    // function getTime() {
+    //   document.querySelector('div').innerHTML = new Date().toLocaleString()
+    //   setTimeout(getTime, 1000)
+    // }
+    // getTime()
   </script>
 </body>
 
