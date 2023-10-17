@@ -114,11 +114,9 @@
     document.querySelector('.btn-login').addEventListener('click', () => {
       // 3.2 使用serialize函数，收集登录表单里用户名和密码
       const form = document.querySelector('.login-form')
-      const data = serialize(form, { hash: true, empty: true })
-      console.log(data)
-      // {username: 'itheima007', password: '7654321'}
-      const { username, password } = data
+      const data = serialize(form, {hash: true, empty: true})
 
+      const {username, password } = data // object destructuring
       // 1.2 获取用户名和密码
       // const username = document.querySelector('.username').value
       // const password = document.querySelector('.password').value
