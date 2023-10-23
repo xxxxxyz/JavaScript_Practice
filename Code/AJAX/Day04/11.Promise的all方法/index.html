@@ -22,6 +22,23 @@
      * 广州-440100
      * 深圳-440300
     */
+   // 请求城市天气，得到promise 对象
+   const bjPromise = axios({url: 'http://hmajax.itheima.net/api/weather', params: {city: '110100'}})
+   const shPromise = axios({url: 'http://hmajax.itheima.net/api/weather', params: {city: '310100'}})
+   const gzPromise = axios({url: 'http://hmajax.itheima.net/api/weather', params: {city: '440100'}})
+   const szPromise = axios({url: 'http://hmajax.itheima.net/api/weather', params: {city: '440300'}})
+
+   // 同时等待 promise all 静态方法
+   const p = Promise.all([bjPromise,shPromise,gzPromise,szPromise])
+   p.then(result => {
+    // console.log(result)
+    const htmlStr = result.map(item => {return `<li>${item.data.data.area} --- ${item.data.data.weather}<li>`}).join('')
+      document.querySelector('.my-ul').innerHTML = htmlStr
+   }).catch(error => {
+    console.dir(error)
+   })
+
+
   </script>
 </body>
 
