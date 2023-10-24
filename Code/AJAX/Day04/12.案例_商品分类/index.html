@@ -47,6 +47,49 @@
      *  3. 合并所有二级分类Promise对象
      *  4. 等待同时成功后，渲染页面
     */
+    // 1. get primary data
+    axios({
+      url: 'http://hmajax.itheima.net/api/category/top',
+    
+    }).then(result => {
+      // console.log(result);
+      //2. map the primary data and create secondary query
+      const secPromiseList = result.data.data.map(item => {
+        return axios({
+          url: 'http://hmajax.itheima.net/api/category/sub',
+          params: {
+            id: item.id,
+          }
+        })
+      })
+      // console.log(secPromiseList); // secondary promise list array
+      // combine all the promise
+      const p = Promise.all(secPromiseList)
+      p.then(result => {
+        // console.log(result);
+        const htmlStr = result.map(item => {
+          const dataObj = item.data.data
+          console.log(dataObj);
+          return `<div class="item">
+        <h3>${dataObj.name}</h3>
+        <ul>
+          ${dataObj.children.map(item => {
+            console.log(item)
+            return `<li>
+            <a href="javascript:;">
+              <img src=${item.picture}/>
+              <p>${item.name}</p>
+            </a>
+          </li>`
+          }).join('')}
+          
+        </ul>
+      </div>`
+        }).join('')
+
+        document.querySelector('.sub-list').innerHTML = htmlStr
+      })
+    })
   </script>
 </body>
 
