@@ -22,7 +22,7 @@ axios.interceptors.response.use(
   },
   function (error) {
     // eg: give response to 401 error
-    console.dir(error);
+    // console.dir(error);
     if (error?.response?.status === 401) {
       alert("Incorrect authentication, please login again");
       localStorage.clear();

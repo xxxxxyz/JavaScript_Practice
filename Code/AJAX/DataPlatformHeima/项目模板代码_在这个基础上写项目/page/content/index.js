@@ -13,11 +13,9 @@ async function setArticleList() {
     url: "/v1_0/mp/articles",
     params: queryObj,
   });
-  //   console.log(res);
   // 1.3 render the data into the html tag
   const articleListStr = res.data.results
     .map((item) => {
-      //   console.log(item);
       return `<tr>
             <td>
                 <img src="${
@@ -50,7 +48,7 @@ async function setArticleList() {
             <td>
                 <span>${item.like_count}</span>
             </td>
-            <td>
+            <td data-id=${item.id}>
                 <i class="bi bi-pencil-square edit"></i>
                 <i class="bi bi-trash3 del"></i>
             </td>
@@ -58,8 +56,8 @@ async function setArticleList() {
     })
     .join("");
 
-  //   console.log(articleListStr);
   document.querySelector(".art-list").innerHTML = articleListStr;
+  // 3.1 total page
   totalCount = res.data.total_count;
   document.querySelector(".total-count").innerHTML = `共 ${totalCount} 条`;
 }
@@ -109,6 +107,22 @@ document.querySelector(".sel-btn").addEventListener("click", (e) => {
  *  3.3 点击上一页，做临界值判断，并切换页码参数并请求最新数据
  */
 
+// 3.2 add event listener to next btn
+document.querySelector(".next").addEventListener("click", (e) => {
+  // current page number < max page number
+  if (queryObj.page < Math.ceil(totalCount / queryObj.per_page)) {
+    queryObj.page++;
+    document.querySelector(".page-now").innerHTML = `第 ${queryObj.page} 页`;
+    setArticleList();
+  }
+});
+
+// 3.3 pre page
+document.querySelector(".last").addEventListener("click", (e) => {
+  queryObj.page--;
+  document.querySelector(".page-now").innerHTML = `第 ${queryObj.page} 页`;
+});
+
 /**
  * 目标4：删除功能
  *  4.1 关联文章 id 到删除图标
@@ -117,5 +131,29 @@ document.querySelector(".sel-btn").addEventListener("click", (e) => {
  *  4.4 重新获取文章列表，并覆盖展示
  *  4.5 删除最后一页的最后一条，需要自动向前翻页
  */
+document.querySelector(".art-list").addEventListener("click", async (e) => {
+  if (e.target.classList.contains("del")) {
+    const delId = e.target.parentNode.dataset.id;
+    await axios({
+      url: `/v1_0/mp/articles/${delId}`,
+      method: "delete",
+    });
+    // 4.5 delete the last article
+    const children = document.querySelector(".art-list").children;
+
+    if (children.length === 1 && queryObj.page !== 1) {
+      queryObj.page--;
+      document.querySelector(".page-now").innerHTML = `第 ${queryObj.page} 页`;
+    }
+    setArticleList();
+  }
+});
 
 // 点击编辑时，获取文章 id，跳转到发布文章页面传递文章 id 过去
+
+document.querySelector(".art-list").addEventListener("click", (e) => {
+  if (e.target.classList.contains("edit")) {
+    const artId = e.target.parentNode.dataset.id;
+    location.href = `../publish/index.html?id=${artId}`;
+  }
+});
